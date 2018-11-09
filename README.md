@@ -1,10 +1,11 @@
-# [ponyfills](https://github.com/eserozvataf/ponyfills)
+# 🦄 [ponyfills](https://github.com/eserozvataf/ponyfills)
 
+[![build status][build-image]][build-url]
 [![npm version][npm-image]][npm-url]
 [![npm download][download-image]][npm-url]
 [![dependencies][dep-image]][dep-url]
+[![coverage status][coverage-image]][coverage-url]
 [![license][license-image]][license-url]
-
 
 ## What is the Ponyfills?
 
@@ -86,10 +87,14 @@ It is publicly open for any contribution. Bugfixes, new features and extra modul
 [Visit my patreon profile at patreon.com/eserozvataf](https://www.patreon.com/eserozvataf)
 
 
+[build-image]: https://travis-ci.org/eserozvataf/ponyfills.png?branch=master
+[build-url]: https://travis-ci.org/eserozvataf/ponyfills
 [npm-image]: https://img.shields.io/npm/v/ponyfills.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/ponyfills
 [download-image]: https://img.shields.io/npm/dt/ponyfills.svg?style=flat-square
 [dep-image]: https://img.shields.io/david/eserozvataf/ponyfills.svg?style=flat-square
 [dep-url]: https://github.com/eserozvataf/ponyfills
+[coverage-image]: https://coveralls.io/repos/eserozvataf/ponyfills/badge.png?branch=master
+[coverage-url]: https://coveralls.io/r/eserozvataf/ponyfills?branch=master
 [license-image]: https://img.shields.io/npm/l/ponyfills.svg?style=flat-square
 [license-url]: https://github.com/eserozvataf/ponyfills/blob/master/LICENSE

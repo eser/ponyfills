@@ -7,7 +7,7 @@
     "assign"
   ],
   "version": "0.9.0",
-  "homepage": "https://github.com/eserozvataf/jsmake-libraries#readme",
+  "homepage": "https://github.com/eserozvataf/ponyfills#readme",
   "author": "Eser Ozvataf <eser@ozvataf.com>",
   "contributors": [
     {
@@ -18,10 +18,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eserozvataf/jsmake-libraries.git"
+    "url": "git+https://github.com/eserozvataf/ponyfills.git"
   },
   "bugs": {
-    "url": "https://github.com/eserozvataf/jsmake-libraries/issues"
+    "url": "https://github.com/eserozvataf/ponyfills/issues"
   },
   "license": "Apache-2.0",
   "main": "./lib/index.js",
@@ -32,7 +32,8 @@
   "scripts": {
     "compile": "tsc --build",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx,.mjs ./src/",
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest --coverage && cat ./tmp/coverage/lcov.info | coveralls"
   },
   "directories": {
     "lib": "./lib"
@@ -48,6 +49,7 @@
   "devDependencies": {
     "@types/jest": "^23.3.9",
     "@types/node": "^10.12.2",
+    "coveralls": "^3.0.2",
     "eslint": "^5.8.0",
     "eslint-config-eser": "^2.0.7",
     "eslint-plugin-import": "^2.14.0",
