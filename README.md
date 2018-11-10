@@ -95,7 +95,7 @@ It is publicly open for any contribution. Bugfixes, new features and extra modul
 [download-image]: https://img.shields.io/npm/dt/ponyfills.svg?style=flat-square
 [dep-image]: https://img.shields.io/david/eserozvataf/ponyfills.svg?style=flat-square
 [dep-url]: https://github.com/eserozvataf/ponyfills
-[coverage-image]: https://coveralls.io/repos/eserozvataf/ponyfills/badge.svg?branch=master
-[coverage-url]: https://coveralls.io/r/eserozvataf/ponyfills?branch=master
+[coverage-image]: https://codecov.io/gh/eserozvataf/ponyfills/branch/master/graph/badge.svg
+[coverage-url]: https://codecov.io/gh/eserozvataf/ponyfills
 [license-image]: https://img.shields.io/npm/l/ponyfills.svg?style=flat-square
 [license-url]: https://github.com/eserozvataf/ponyfills/blob/master/LICENSE
