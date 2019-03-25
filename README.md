@@ -16,7 +16,7 @@ It simply tests the availability of native functionality first, then delivers th
 
 Compared to its alternatives, ponyfills doesn't assign its modules anywhere or doesn't patch anything in the runtime environment. Instead, it just delivers the required functionality with ES6 modules or commonjs.
 
-Plus, as a library, Ponyfills is completely tree-shanking-friendly. Your favorite module bundler can easily inline the functionality you need with no extra configuration, instead of bundling the whole Ponyfills package.
+Plus, as a library, Ponyfills is completely tree-shaking-friendly. Your favorite module bundler can easily inline the functionality you need with no extra configuration, instead of bundling the whole Ponyfills package.
 
 
 ## Quick start
