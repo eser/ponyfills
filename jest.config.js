@@ -1,10 +1,10 @@
 const jestConfig = {
     testEnvironment: 'node',
     roots: [
-        '<rootDir>/src'
+        '<rootDir>/src',
     ],
     transform: {
-        '^.+\\.tsx?$': 'ts-jest'
+        '^.+\\.tsx?$': 'ts-jest',
     },
     testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.([jt]sx?|mjs)$',
     moduleFileExtensions: [
@@ -13,7 +13,7 @@ const jestConfig = {
         'js',
         'jsx',
         'json',
-        'mjs'
+        'mjs',
     ],
     coverageDirectory: './tmp/coverage',
 };
