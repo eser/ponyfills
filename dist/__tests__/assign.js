@@ -5,7 +5,7 @@ var assign_1 = tslib_1.__importStar(require("../assign"));
 describe('assign', function () {
     test('having the original assign if available', function () {
         if (Object.hasOwnProperty('assign')) {
-            expect(Object['assign']).toBe(assign_1.default);
+            expect(Object.assign).toBe(assign_1.default);
         }
     });
     test('ensure skipping null/undefined sources', function () {

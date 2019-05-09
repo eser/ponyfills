@@ -2,8 +2,9 @@ import assign, { assignPolyfill } from '../assign';
 
 describe('assign', () => {
     test('having the original assign if available', () => {
+        // eslint-disable-next-line no-prototype-builtins
         if (Object.hasOwnProperty('assign')) {
-            expect(Object['assign']).toBe(assign);
+            expect(Object.assign).toBe(assign);
         }
     });
 
