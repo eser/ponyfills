@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = require("tslib");
-function assignPolyfill(target) {
+function objectAssignPolyfill(target) {
     var e_1, _a, e_2, _b;
     var sources = [];
     for (var _i = 1; _i < arguments.length; _i++) {
@@ -37,7 +37,7 @@ function assignPolyfill(target) {
     }
     return target;
 }
-exports.assignPolyfill = assignPolyfill;
-var assign = (Object.hasOwnProperty('assign') ? Object.assign : assignPolyfill);
-exports.default = assign;
-//# sourceMappingURL=assign.js.map
+exports.objectAssignPolyfill = objectAssignPolyfill;
+var objectAssign = (Object.hasOwnProperty('assign') ? Object.assign : objectAssignPolyfill);
+exports.default = objectAssign;
+//# sourceMappingURL=objectAssign.js.map

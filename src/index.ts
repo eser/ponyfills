@@ -1,10 +1,22 @@
-import assign from './assign';
+import arrayFrom from './arrayFrom';
+import objectAssign from './objectAssign';
+import objectEntries from './objectEntries';
+import objectValues from './objectValues';
+import reflectOwnKeys from './reflectOwnKeys';
 
 const library = {
-    assign,
+    arrayFrom,
+    objectAssign,
+    objectEntries,
+    objectValues,
+    reflectOwnKeys,
 };
 
 export {
     library as default,
-    assign,
+    arrayFrom,
+    objectAssign,
+    objectEntries,
+    objectValues,
+    reflectOwnKeys,
 };

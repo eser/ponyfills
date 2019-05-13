@@ -26,27 +26,27 @@ Execute `npm install ponyfills` to install ponyfills and its dependencies into y
 
 ## Usage of modules
 
-### assign(target, ...sources) (Object.assign)
+### arrayFrom(source, mapFn?, thisArg?) (Array.From)
 
-The `assign` method is used to copy the values of all enumerable own properties from one or more source objects to a target object. It will return the target object. (Source: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign))
+The `Array.from` method creates a new, shallow-copied Array instance from an array-like or iterable object. (Source: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from))
 
-For example, to ensure Object.assign will be work:
+For example, to ensure Array.from will be work:
 
 ```js
-import assign from 'ponyfills/assign';
+import arrayFrom from 'ponyfills/arrayFrom';
 
-const test = assign({}, { test: true });
+const test = arrayFrom(new Set(1, 2, 3));
 
 console.log(`Result: ${test}`);
-console.log(`Is Native: ${assign === Object.assign}`);
+console.log(`Is Native: ${arrayFrom === Array.from}`);
 ```
 
 Alternative usage I:
 
 ```js
-import { assign } from 'ponyfills';
+import { arrayFrom } from 'ponyfills';
 
-const test = assign({}, { test: true });
+const test = arrayFrom(new Set(1, 2, 3));
 ```
 
 Alternative usage II:
@@ -54,8 +54,73 @@ Alternative usage II:
 ```js
 import * as ponyfills from 'ponyfills';
 
-const test = ponyfills.assign({}, { test: true });
+const test = ponyfills.arrayFrom(new Set(1, 2, 3));
 ```
+
+
+### objectAssign(target, ...sources) (Object.assign)
+
+The `objectAssign` method is used to copy the values of all enumerable own properties from one or more source objects to a target object. It will return the target object. (Source: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign))
+
+For example, to ensure Object.assign will be work:
+
+```js
+import objectAssign from 'ponyfills/objectAssign';
+
+const test = objectAssign({}, { test: true });
+
+console.log(`Result: ${test}`);
+console.log(`Is Native: ${objectAssign === Object.assign}`);
+```
+
+
+### objectEntries(source) (Object.entries)
+
+The `Object.entries` method returns an array of a given object's own enumerable string-keyed property [key, value] pairs, in the same order as that provided by a **for...in** loop. (Source: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries))
+
+For example, to ensure Object.entries will be work:
+
+```js
+import objectEntries from 'ponyfills/objectEntries';
+
+const test = objectEntries({ a: 1, b: 2, c: 3 });
+
+console.log(`Result: ${test}`);
+console.log(`Is Native: ${objectEntries === Object.entries}`);
+```
+
+
+### objectValues(source) (Object.values)
+
+The `Object.values` method returns an array of a given object's own enumerable property values, in the same order as that provided by a **for...in** loop. (Source: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values))
+
+For example, to ensure Object.values will be work:
+
+```js
+import objectValues from 'ponyfills/objectValues';
+
+const test = objectValues({ a: 1, b: 2, c: 3 });
+
+console.log(`Result: ${test}`);
+console.log(`Is Native: ${objectValues === Object.values}`);
+```
+
+
+### reflectOwnKeys(source) (Reflect.ownKeys)
+
+The static `Reflect.ownKeys` method returns an array of the target object's own property keys. (Source: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/ownKeys))
+
+For example, to ensure Reflect.ownKeys will be work:
+
+```js
+import reflectOwnKeys from 'ponyfills/reflectOwnKeys';
+
+const test = reflectOwnKeys({ a: 1, b: 2, c: 3 });
+
+console.log(`Result: ${test}`);
+console.log(`Is Native: ${reflectOwnKeys === Reflect.ownKeys}`);
+```
+
 
 
 ## Todo List

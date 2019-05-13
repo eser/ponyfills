@@ -1,4 +1,4 @@
-function assignPolyfill(target: Object, ...sources: Array<Object>): Object {
+function objectAssignPolyfill(target: Object, ...sources: Array<Object>): Object {
     // eslint-disable-next-line no-restricted-syntax
     for (const source of sources) {
         if (source === null || source === undefined) {
@@ -15,9 +15,9 @@ function assignPolyfill(target: Object, ...sources: Array<Object>): Object {
 }
 
 // eslint-disable-next-line no-prototype-builtins
-const assign = (Object.hasOwnProperty('assign') ? Object.assign : assignPolyfill);
+const objectAssign = (Object.hasOwnProperty('assign') ? Object.assign : objectAssignPolyfill);
 
 export {
-    assign as default,
-    assignPolyfill,
+    objectAssign as default,
+    objectAssignPolyfill,
 };

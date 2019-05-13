@@ -1,10 +1,10 @@
-import assign, { assignPolyfill } from '../assign';
+import objectAssign, { objectAssignPolyfill } from '../objectAssign';
 
-describe('assign', () => {
-    test('having the original assign if available', () => {
+describe('objectAssign', () => {
+    test('having the original Object.assign if available', () => {
         // eslint-disable-next-line no-prototype-builtins
         if (Object.hasOwnProperty('assign')) {
-            expect(Object.assign).toBe(assign);
+            expect(Object.assign).toBe(objectAssign);
         }
     });
 
@@ -13,7 +13,7 @@ describe('assign', () => {
         const obj2: any = null;
         const obj3: any = undefined;
 
-        const result = assignPolyfill(obj1, obj2, obj3);
+        const result = objectAssignPolyfill(obj1, obj2, obj3);
 
         expect(result).toBe(obj1);
         expect(result).toEqual(obj1);
@@ -23,7 +23,7 @@ describe('assign', () => {
         const obj1 = {};
         const obj2 = { test: true };
 
-        const result = assignPolyfill(obj1, obj2);
+        const result = objectAssignPolyfill(obj1, obj2);
 
         expect(result).toBe(obj1);
         expect(result).not.toBe(obj2);
