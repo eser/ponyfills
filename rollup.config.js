@@ -11,6 +11,7 @@ export default {
         name: 'ponyfills',
         compact: true,
         sourcemap: true,
+        external: [ 'tslib' ],
     },
     plugins: [
         typescript({
