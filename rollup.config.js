@@ -1,6 +1,5 @@
-import typescript from 'rollup-plugin-typescript';
-import nodeResolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
+import typescript from 'rollup-plugin-typescript2';
+import { terser } from 'rollup-plugin-terser';
 
 export default {
     input: './src/index.ts',
@@ -10,22 +9,23 @@ export default {
             format: 'umd',
             exports: 'named',
             name: 'ponyfills',
-            compact: true,
-            sourcemap: true,
+        },
+        {
+            file: './dist/index.esm.min.js',
+            format: 'es',
         },
     ],
-    external: [
-        'tslib',
-    ],
+    external: [],
     plugins: [
         typescript({
-            tsconfig: './',
+            tsconfigOverride: {
+                compilerOptions: {
+                    module: 'es2015',
+                },
+            },
         }),
-        nodeResolve({
-            extensions: [ '.mjs', '.js', '.ts', '.json' ],
-        }),
-        commonjs({
-            extensions: [ '.mjs', '.js', '.ts', '.json' ],
+        terser({
+            include: [ /^.+\.min\.js$/ ],
         }),
     ],
 };

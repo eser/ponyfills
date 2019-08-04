@@ -11,6 +11,7 @@ node_modules/
 
 # temp directory
 tmp/
+.rpt2_cache/
 
 # configuration and dotfiles
 .env
