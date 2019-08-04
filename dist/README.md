@@ -21,7 +21,7 @@ Plus, as a library, Ponyfills is completely tree-shaking-friendly. Your favorite
 
 ## Quick start
 
-Execute `npm install ponyfills` to install ponyfills and its dependencies into your project directory.
+Execute `npm install ponyfills` or `yarn add ponyfills` to install ponyfills and its dependencies into your project directory.
 
 
 ## Usage of modules
