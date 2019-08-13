@@ -11,7 +11,7 @@
     "object.values",
     "reflect.ownkeys"
   ],
-  "version": "0.13.2",
+  "version": "0.13.3",
   "homepage": "https://github.com/eserozvataf/ponyfills#readme",
   "author": "Eser Ozvataf <eser@ozvataf.com>",
   "contributors": [
