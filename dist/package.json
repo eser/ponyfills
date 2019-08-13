@@ -11,7 +11,7 @@
     "object.values",
     "reflect.ownkeys"
   ],
-  "version": "0.13.1",
+  "version": "0.13.2",
   "homepage": "https://github.com/eserozvataf/ponyfills#readme",
   "author": "Eser Ozvataf <eser@ozvataf.com>",
   "contributors": [
@@ -29,8 +29,9 @@
     "url": "https://github.com/eserozvataf/ponyfills/issues"
   },
   "license": "Apache-2.0",
-  "main": "./index.min.js",
-  "module": "./index.esm.min.js",
+  "main": "./index.js",
+  "module": "./index.esm.js",
+  "browser": "./index.umd.js",
   "types": "./index.d.ts",
   "engines": {
     "node": ">=10.13.0"
@@ -55,6 +56,8 @@
     "eslint-plugin-import": "^2.18.2",
     "jest": "^24.8.0",
     "rollup": "^1.19.4",
+    "rollup-plugin-cleanup": "^3.1.1",
+    "rollup-plugin-size-snapshot": "^0.10.0",
     "rollup-plugin-terser": "^5.1.1",
     "rollup-plugin-typescript2": "^0.22.1",
     "ts-jest": "^24.0.2",
