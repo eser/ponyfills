@@ -1,7 +1,7 @@
 import typescript from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
-import cleanup from 'rollup-plugin-cleanup';
+import dts from 'rollup-plugin-dts';
 import pkg from './package.json';
 
 export default [
@@ -10,45 +10,56 @@ export default [
         output: [
             // browser-friendly UMD build
             {
-                file: './dist/index.umd.js',
+                file: `./dist/${pkg.name}.umd.js`,
                 format: 'umd',
                 exports: 'named',
                 name: pkg.name,
             },
             // browser-friendly UMD build (minified)
             {
-                file: './dist/index.umd.min.js',
+                file: `./dist/${pkg.name}.umd.min.js`,
                 format: 'umd',
                 exports: 'named',
                 name: pkg.name,
             },
             // ES module
             {
-                file: './dist/index.esm.js',
+                file: `./dist/${pkg.name}.js`,
                 format: 'es',
             },
             // ES module (minified)
             {
-                file: './dist/index.esm.min.js',
+                file: `./dist/${pkg.name}.min.js`,
                 format: 'es',
             },
         ],
-        external: Object.keys(pkg.dependencies),
+        external: [], // Object.keys(pkg.dependencies),
         plugins: [
             typescript({
                 tsconfigOverride: {
                     compilerOptions: {
+                        declaration: false,
                         module: 'es2015',
                     },
                 },
-            }),
-            cleanup({
-                comments: 'none',
             }),
             terser({
                 include: [ /^.+\.min\.js$/ ],
             }),
             sizeSnapshot(),
+        ],
+    },
+    {
+        input: './dist/npm/index.d.ts',
+        output: [
+            // ES module
+            {
+                file: `./dist/${pkg.name}.d.ts`,
+                format: 'es',
+            },
+        ],
+        plugins: [
+            dts(),
         ],
     },
 ];
