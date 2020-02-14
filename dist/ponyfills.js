@@ -13,17 +13,6 @@ See the Apache Version 2.0 License for specific language governing permissions
 and limitations under the License.
 ***************************************************************************** */
 
-function __values(o) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator], i = 0;
-    if (m) return m.call(o);
-    return {
-        next: function () {
-            if (o && i >= o.length) o = void 0;
-            return { value: o && o[i++], done: !o };
-        }
-    };
-}
-
 function __read(o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
@@ -52,53 +41,30 @@ function arrayFromPolyfill(source, mapFn, thisArg) {
     if (source === null || source === undefined) {
         throw new TypeError('Array.from requires an array-like object - not null or undefined');
     }
-    var mapping = (mapFn !== null && mapFn !== undefined);
-    if (mapping && !(mapFn instanceof Function)) {
-        throw new TypeError('Array.from: when provided, the second argument must be a function');
+    if (mapFn !== null && mapFn !== undefined) {
+        if (!(mapFn instanceof Function)) {
+            throw new TypeError('Array.from: when provided, the second argument must be a function');
+        }
+        var result = __spread(source).reduce(function (prev, curr, idx) { return (__spread(prev, [mapFn.call(caller, curr, idx)])); }, []);
+        return result;
     }
-    var items = __spread(source);
-    if (!mapping) {
-        return items;
-    }
-    var result = items.reduce(function (prev, curr, idx) { return (__spread(prev, [mapFn.call(caller, curr, idx)])); }, []);
-    return result;
+    return __spread(source);
 }
 var arrayFrom = (Array.hasOwnProperty('from') ? Array.from : arrayFromPolyfill);
 
 function objectAssignPolyfill(target) {
-    var e_1, _a, e_2, _b;
     var sources = [];
     for (var _i = 1; _i < arguments.length; _i++) {
         sources[_i - 1] = arguments[_i];
     }
-    try {
-        for (var sources_1 = __values(sources), sources_1_1 = sources_1.next(); !sources_1_1.done; sources_1_1 = sources_1.next()) {
-            var source = sources_1_1.value;
-            if (source === null || source === undefined) {
-                continue;
-            }
-            try {
-                for (var _c = (e_2 = void 0, __values(Object.getOwnPropertyNames(source))), _d = _c.next(); !_d.done; _d = _c.next()) {
-                    var key = _d.value;
-                    target[key] = source[key];
-                }
-            }
-            catch (e_2_1) { e_2 = { error: e_2_1 }; }
-            finally {
-                try {
-                    if (_d && !_d.done && (_b = _c.return)) _b.call(_c);
-                }
-                finally { if (e_2) throw e_2.error; }
-            }
+    sources.forEach(function (source) {
+        if (source === null || source === undefined) {
+            return;
         }
-    }
-    catch (e_1_1) { e_1 = { error: e_1_1 }; }
-    finally {
-        try {
-            if (sources_1_1 && !sources_1_1.done && (_a = sources_1.return)) _a.call(sources_1);
-        }
-        finally { if (e_1) throw e_1.error; }
-    }
+        Object.getOwnPropertyNames(source).forEach(function (key) {
+            target[key] = source[key];
+        });
+    });
     return target;
 }
 var objectAssign = (Object.hasOwnProperty('assign') ? Object.assign : objectAssignPolyfill);

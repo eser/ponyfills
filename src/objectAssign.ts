@@ -1,15 +1,14 @@
 function objectAssignPolyfill(target: Object, ...sources: Array<Object>): Object {
-    // eslint-disable-next-line no-restricted-syntax
-    for (const source of sources) {
+    sources.forEach((source) => {
         if (source === null || source === undefined) {
-            continue;
+            return;
         }
 
-        // eslint-disable-next-line no-restricted-syntax, no-prototype-builtins
-        for (const key of Object.getOwnPropertyNames(source)) {
+        Object.getOwnPropertyNames(source).forEach((key) => {
+            // eslint-disable-next-line no-param-reassign
             target[key] = source[key];
-        }
-    }
+        });
+    });
 
     return target;
 }

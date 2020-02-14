@@ -17,5 +17,8 @@
         "import/resolver": {
             "typescript": {}
         }
+    },
+    "rules": {
+        "import/extensions": 0
     }
 }

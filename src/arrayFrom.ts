@@ -6,24 +6,20 @@ function arrayFromPolyfill(source, mapFn?, thisArg?): any {
         throw new TypeError('Array.from requires an array-like object - not null or undefined');
     }
 
-    const mapping = (mapFn !== null && mapFn !== undefined);
+    if (mapFn !== null && mapFn !== undefined) {
+        if (!(mapFn instanceof Function)) {
+            throw new TypeError('Array.from: when provided, the second argument must be a function');
+        }
 
-    if (mapping && !(mapFn instanceof Function)) {
-        throw new TypeError('Array.from: when provided, the second argument must be a function');
+        const result = [ ...source ].reduce(
+            (prev, curr, idx) => ([ ...prev, mapFn.call(caller, curr, idx) ]),
+            [] as any[],
+        );
+
+        return result;
     }
 
-    const items = [ ...source ];
-
-    if (!mapping) {
-        return items;
-    }
-
-    const result = items.reduce(
-        (prev, curr, idx) => ([ ...prev, mapFn.call(caller, curr, idx) ]),
-        [] as any[],
-    );
-
-    return result;
+    return [ ...source ];
 }
 
 // eslint-disable-next-line no-prototype-builtins
