@@ -8,6 +8,12 @@
 [![license][license-image]][license-url]
 
 
+## Update (July 2022)
+
+DEPRECATED in favor of [hex](https://github.com/eserozvataf/hex).
+See https://github.com/eserozvataf/hex for details.
+
+
 ## What is the Ponyfills?
 
 Ponyfills provides a set of modules, which work natively in modern node.js runtime and modern browsers, however, it needs extra fallback code in order to run in some environments.
